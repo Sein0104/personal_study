@@ -5,6 +5,7 @@
  Windows Git Bash 환경
 
 - source .venv/Scripts/activate
+
  Mac 터미널 환경
 
 - source .venv/bin/activate
