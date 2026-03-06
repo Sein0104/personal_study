@@ -9,6 +9,7 @@
  Mac 터미널 환경
 
 - source .venv/bin/activate
+
 가상환경 설정
 패키지 확인
 
