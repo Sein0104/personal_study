@@ -99,6 +99,3 @@ week2/problem-solving/난이도하_파이썬문법_최댓값_브론즈3.py
 # 문제 링크: https://www.acmicpc.net/problem/2562
 
 # 여기에 코드 작성
-```
-
-2주차 코드 공부 작성
