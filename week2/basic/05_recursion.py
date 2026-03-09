@@ -34,10 +34,14 @@ def factorial(n):
     """
     # TODO: base case를 작성하세요
     # n이 0이거나 1이면 1을 반환
-    pass
+    match n:
+        case 1 | 0:
+            return 1
+        case _:
+            return n * factorial(n-1)
     
     # TODO: recursive case를 작성하세요
-    pass
+    
 
 def fibonacci(n):
     """
