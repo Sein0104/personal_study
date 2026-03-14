@@ -22,6 +22,51 @@
 - 정렬된 두 부분을 병합
 """
 
+# 포인터 세개 방법
+# def merge(arr, left, mid, right):
+#     """
+#     두 개의 정렬된 부분 배열을 병합하는 함수
+    
+#     Args:
+#         arr: 원본 배열
+#         left: 왼쪽 부분의 시작 인덱스
+#         mid: 왼쪽 부분의 끝 인덱스
+#         right: 오른쪽 부분의 끝 인덱스
+#     """
+#     # TODO: 왼쪽과 오른쪽 부분 배열을 임시 배열로 복사
+#     left_arr = arr[left : mid + 1]
+#     right_arr = arr[mid + 1 : right + 1]
+    
+#     # TODO: 두 배열을 병합
+#     i = 0
+#     k = left
+#     j = 0
+#     # TODO: left_arr와 right_arr를 비교하며 작은 값을 arr에 복사
+#     while i < len(left_arr) and j < len(right_arr):
+#         if left_arr[i] < right_arr[j]:
+#             arr[k] = left_arr[i]
+#             k += 1
+#             i += 1
+#         else:
+#             arr[k] = right_arr[j]
+#             k += 1
+#             j += 1
+
+#     # TODO: 남은 원소들을 복사
+    
+#     while i < len(left_arr):
+#         arr[k] = left_arr[i]
+#         k = k + 1
+#         i = i + 1
+#     while j < len(right_arr):
+#         arr[k] = right_arr[j]
+#         k = k + 1
+#         j = j + 1
+
+    # left_arr에 남은 원소가 있으면 복사
+    # right_arr에 남은 원소가 있으면 복사
+
+
 def merge(arr, left, mid, right):
     """
     두 개의 정렬된 부분 배열을 병합하는 함수
@@ -33,19 +78,38 @@ def merge(arr, left, mid, right):
         right: 오른쪽 부분의 끝 인덱스
     """
     # TODO: 왼쪽과 오른쪽 부분 배열을 임시 배열로 복사
-    pass
-    
+    left_arr = arr[left : mid + 1]
+    right_arr = arr[mid + 1 : right + 1]
+    result = []
+
     # TODO: 두 배열을 병합
-    pass
-    
-    
+    i = 0
+    j = 0
+
     # TODO: left_arr와 right_arr를 비교하며 작은 값을 arr에 복사
-    pass
-    
+    while i < len(left_arr) and j < len(right_arr):
+        if left_arr[i] < right_arr[j]:
+            result.append(left_arr[i])
+            i += 1
+        else:
+            result.append(right_arr[j])
+            j += 1
+
     # TODO: 남은 원소들을 복사
+    
+    while i < len(left_arr):
+        result.append(left_arr[i])
+        i = i + 1
+
+    while j < len(right_arr):
+        result.append(right_arr[j])
+        j = j + 1
+
+    arr[left : right + 1] = result
     # left_arr에 남은 원소가 있으면 복사
     # right_arr에 남은 원소가 있으면 복사
-    pass
+
+
 
 def merge_sort_helper(arr, left, right):
     """
@@ -61,7 +125,11 @@ def merge_sort_helper(arr, left, right):
     ## 왼쪽 절반 재귀 정렬
     ## 오른쪽 절반 재귀 정렬
     ## 정렬된 두 절반을 병합
-    pass
+    if left < right:
+        mid = (left + right) // 2
+        temp_arr1 = merge_sort_helper(arr, left, mid)
+        temp_arr2 = merge_sort_helper(arr, mid + 1, right)
+        merge(arr, left, mid, right)
 
 def merge_sort(arr):
     """
