@@ -8,6 +8,9 @@ for j in range (N - M, N - 1):
   print(N - M, j + 1)
 
 """
+처음 했던 방법
+node 리스트 안에 리스트로 받는 방식이라
+출력이 리스트로 됨 . .
 N, M = map(int, input().split())
 node = [[0, 0] for _ in range (N - 1)]
 for i in range (N - M):
